@@ -33,22 +33,14 @@ nav li a:hover{
   color: white;
 }
 
-section{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(1, 200px);
-	grid-gap: 5px;
-	height: 100vh;
-}
-
-.brand_image{
+.logo_image{
 	padding-left: 10px;
 	padding-top: 3px;
 }
 
 .post-list{
 	display: grid;
-	grid-template-columns: repeat(2, minmax(100px, 293px));
+	grid-template-columns: 290px 0.8fr;
 	justify-content: center;
 	grid-gap: 28px;
 	margin-top: 100px;
@@ -64,19 +56,13 @@ section{
 .post-image img{
 	width: 100%;
 	vertical-align: top;
+	grid-column: 2 / span 3;
+	
 }
 .post-overlay{
-	background: rgba(0,0,0, .4);
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	top: 0;
-	display: none;
-	align-items: center;
-	justify-content: center;
-	color: white;
 	text-align: center;
+	grid-column: 4 / span 3;
+	grid-row: 1 / span 2;
 }
 
 .post:hover .post-overlay{
@@ -107,6 +93,8 @@ section{
 .main_button:hover{
   	background-color: #ff9800;
 }
+
+
 
 
 
