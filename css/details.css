@@ -109,4 +109,19 @@ nav li a:hover{
   		padding-left: 20px;
   		display: flex;
 	}
+
+	.post-image{
+	width: 100%;
+	vertical-align: top;
+	grid-column: 1 / span 3;
+	grid-row: 200px 1fr;
+	}
+
+	.post-list{
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-areas: "post-image"
+								 "post-overlay"; 
+			grid-gap: 10px;
+		}
 }
