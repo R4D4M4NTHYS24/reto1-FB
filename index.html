@@ -19,29 +19,37 @@
 </head>
 <body>
 	<section class="post-list">
-		<a href="details.html" class="post">
+		<a href="details.html" onclick="change()" class="post">
 			<figure class="post-image">
-				<img src="./image/compu.jpg" alt="">
+				<img id="im1" src="./image/compu.jpg" alt="">
 			</figure>
 			<span class="post-overlay"></span>
 		</a>
 
 		<a href="" class="post">
 			<figure class="post-image">
-				<img src="./image/compu2.jpg" alt="">
+				<img id="im2" src="./image/compu2.jpg" alt="">
 			</figure>
 			<span class="post-overlay"></span>
 		</a>
 
 		<a href="" class="post">
 			<figure class="post-image">
-				<img src="./image/compu3.jpg" alt="">
+				<img id="im3" src="./image/compu3.jpg" alt="">
 			</figure>
 			<span class="post-overlay"></span>
 		</a>
 
 	</section>
 	<a href="characters.html"><button class="main_button">Ver todos!</button></a>		
-	
+	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		function listeners(){
+			document.getElementById('#im1').addEventListener('click', change(1));
+			document.getElementById('#im2').addEventListener('click', change(2));
+			document.getElementById('#im3').addEventListener('click', change(3));
+			console.log('hello');
+		}
+	</script>
 </body>
 </html>
