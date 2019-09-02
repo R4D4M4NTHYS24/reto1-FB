@@ -1,7 +1,8 @@
 let length = 0;
-let random = -1;
+let characterPosition = 0;
 let userImage = document.querySelector("#im1");
 let characters = [];
+let character = {};
 
 function userInfo() {
     fetch('https://rickandmortyapi.com/api/character').then((respuesta) => {
@@ -16,42 +17,48 @@ function userInfo() {
         })
         characters.push(respuesta.results);
         console.log(respuesta);*/
-        length = respuesta.results.length;
-        userImage = document.querySelector("#im1");
-        random = Math.floor(Math.random()*length + 1);
-        userImage.src = 'https://rickandmortyapi.com/api/character/avatar/' + random.toString() +'.jpeg';
+        length = respuesta.results.length;        
+        characterPosition = Math.floor(Math.random()*length + 1)-1;
+        character = respuesta.results[characterPosition];
+        userImage.src = character.image;
+        localStorage.setItem('character', JSON.stringify(character));
+
+
+        /*userImage.src = 'https://rickandmortyapi.com/api/character/avatar/' + random.toString() +'.jpeg';
         localStorage.setItem('random1', random);
         userImage.addEventListener('click', change(1));
+
         userImage = document.querySelector("#im2");
         random = Math.floor(Math.random()*length + 1);
         userImage.src = 'https://rickandmortyapi.com/api/character/avatar/' + random.toString() +'.jpeg';
         localStorage.setItem('random2', random);
         userImage.addEventListener('click', change(2));
+
         userImage = document.querySelector("#im3");
         random = Math.floor(Math.random()*length + 1);
         userImage.src = 'https://rickandmortyapi.com/api/character/avatar/' + random.toString() +'.jpeg';
         localStorage.setItem('random3', random);
-        userImage.addEventListener('click', change(3));
+        userImage.addEventListener('click', change(3));*/
     })
 }
 userInfo();
 //change();
 
 function change(number) {
-    console.log(number);
+    console.log('->',number);
     if(number == 1){
-        console.log(localStorage.getItem('random1'));
+        //console.log(localStorage.getItem('random1'));
         localStorage.setItem('random2', null);
         localStorage.setItem('random3', null);
     }
     else if (number== 2){
-        console.log(localStorage.getItem('random2'));
+        //console.log(localStorage.getItem('random2'));
         localStorage.setItem('random1', null);
         localStorage.setItem('random3', null);
     }
     else if (number== 3){
         localStorage.setItem('random1', null);
         localStorage.setItem('random2', null);
-        console.log(localStorage.getItem('random3'));
+        //console.log(localStorage.getItem('random3'));
     }
 }	

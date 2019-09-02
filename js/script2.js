@@ -1,17 +1,8 @@
-let avatar = document.querySelector("#avatar");
-
-function setDetails() {
-    let character=-1;
-    if (localStorage.getItem('random1')!== null) {
-        character = localStorage.getItem('random1');
-    } 
-    else if(localStorage.getItem('random2')!== null){
-        character = localStorage.getItem('random2');
-    }
-    else if(localStorage.getItem('random3')!== null){
-        character = localStorage.getItem('random3');
-    }
-    
-    avatar.src = 'https://rickandmortyapi.com/api/character/avatar/' + character.toString() +'.jpeg';
-
-}
+let userImage = document.querySelector(".character-image");
+let userDetails = document.querySelector(".character-details");
+let userLocalObject = localStorage.getItem("character");
+let userObject = JSON.parse(userLocalObject);
+let li = document.createElement("li");
+li.innerHTML = userObject.name;
+userDetails.appendChild(li);
+userImage.src = userObject.image;
