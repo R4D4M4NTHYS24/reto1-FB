@@ -38,8 +38,9 @@ function userInfo() {
         characterFigure = document.querySelector(".post");
         characterSpan = document.querySelector(".post");
         characterImg = document.querySelector(".post-image"); 
-
+        userImage.src = character.image; 
         length = respuesta.results.length; 
+        postElements = document.getElementsByClassName('post');
         
         for (let index = 0; index <= length; index++) {           
 
@@ -51,80 +52,36 @@ function userInfo() {
                                  
             a.setAttribute('href',"details.html");
             a.setAttribute('class',"post");
+            characterA.appendChild(a);
 
             figure.setAttribute('class',"post-image"); 
 
             span.setAttribute('class',"post-overlay"); 
 
             img.setAttribute('src',`${userImage.src}`);                       
-            img.setAttribute('class',"image"); 
-
-            characterA.appendChild(a);
-
-            /*
-            if(characterFigure == ""){      
-            characterFigure = document.querySelector(".post");
-            characterFigure.appendChild(figure);
-            console.log("entreeee")
-            } */
-            //characterSpan = document.querySelector(".post");
-            //characterSpan.appendChild(span);
-            //characterImg = document.querySelector(".post-image");
-            //characterImg.appendChild(img);           
-                                  
+            img.setAttribute('class',"image");             
             
-            
+            a.appendChild(figure);
+            a.appendChild(span);
+            figure.appendChild(img);
+                     
             console.log("ejecute");       
-            
-            
-            /*          
-            characterFigure = document.getElementsByClassName(".post").nextElementSibling.innerHTML;
-            characterSpan = document.getElementsByClassName(".post").nextElementSibling.innerHTML;
-            */
-           
+                      
             characterPosition = index;            
             userImage.src = character.image;            
             character = respuesta.results[characterPosition];         
             
-            /*
-            length[index].addEventListener('click', function(){
+           
+            postElements[index].addEventListener('click', function(){
                 console.log("entre");
                 console.log(index);
                 console.log(character);
                 localStorage.setItem('character', JSON.stringify(respuesta[index]));
-           */
-           
-
+            });    
             
             
         }
         
-       
-       
-        
-        
-        
-        
-        
-              
-        
-            
-        
-           
-            
-
-           
-            
-
-            
-            
-            
-
-            
-            
-            
-        })
-        
         
        
         
@@ -135,8 +92,8 @@ function userInfo() {
 
 
 
-    }
+    })
     
-
+}
 
 userInfo();
