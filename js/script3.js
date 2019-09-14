@@ -13,6 +13,9 @@ let userImage;
 let userDetails;
 let span;
 let figure;
+let btnNext;
+let contador;
+
 
 
 
@@ -36,18 +39,22 @@ function userInfo() {
         characterFigure = document.querySelector(".post");
         characterSpan = document.querySelector(".post");
         characterImg = document.querySelector(".post-image"); 
-        userImage.src = character.image; 
+        //userImage.src = character.image; 
         length = respuesta.results.length; 
-
+        
+       
+        postElements = document.getElementsByClassName('post');  
         
         
-        for (let index = 0; index <= length; index++) {           
-            console.log(length);
+        
+        for (let index = 0; index < postElements.length; index++) {   
+            let postImage = postElements[index].querySelector('.image'); 
+                    
+            character = respuesta.results[index];
+            console.log(index); 
+            postImage.src = character.image;       
             
-            characterPosition = index;            
-            userImage.src = character.image;            
-            character = respuesta.results[characterPosition];       
-             
+            
             
             a = document.createElement("a");
             figure = document.createElement("figure"); 
@@ -73,19 +80,31 @@ function userInfo() {
             
             console.log(img);         
             console.log("ejecute");       
-                      
-            postElements = document.getElementsByClassName('post');        
+                     
             postElements[index].addEventListener('click', function(){
                 console.log("entre");
                 console.log(index);
                 console.log(character);
-                localStorage.setItem('character', JSON.stringify(respuesta[index]));
-            });   
+                localStorage.setItem('character', JSON.stringify(respuesta.results[index]));
+            })      
+            
            
            
             
             
         }
+        /*
+        contador = 1;
+        btnNext = document.querySelector(".next");
+        btnNext.addEventListener('click', function(){
+            respuesta.next;
+            contador++;
+            console.log("entre");
+            console.log(index);
+            console.log(character);
+            
+        })*/
+            
         
         
        
@@ -97,7 +116,7 @@ function userInfo() {
 
 
 
-    })
+    });
     
 }
 
