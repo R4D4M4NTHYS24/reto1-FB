@@ -4,6 +4,7 @@ let postElements;
 let characterPosition;
 let characterPosition2;
 let characterA;
+let z;
 let a;
 let characterImg
 let characterFigure;
@@ -14,6 +15,7 @@ let userDetails;
 let span;
 let figure;
 let btnNext;
+let btnPrev;
 let contador;
 let flag;
 let postImage;
@@ -103,17 +105,28 @@ function userInfo() {
         a = document.createElement("a");
         a.setAttribute('href',"#");
         a.setAttribute('class',"next");
-        a.innerHTML = "Siguiente";
-        characterB.appendChild(a);       
+        a.innerHTML = "Siguiente >";
+        characterB.appendChild(a); 
+         
+        characterC = document.querySelector("body");
+        z = document.createElement("a");
+        z.setAttribute('href',"#");
+        z.setAttribute('class',"prev");
+        z.innerHTML = "< Anterior";
+        characterC.appendChild(z);
         
+        
+
         function quitar(){
 
             section = document.querySelector("section");
-            console.log(seccion);
+            console.log(contador);
             seccion = document.querySelector("body");
-            seccion.removeChild(section);
-            characterB.removeChild(a);          
-    
+            seccion.removeChild(section);            
+            characterB.removeChild(a);           
+            characterC.removeChild(z);            
+            
+            
         }       
         
           
@@ -133,8 +146,27 @@ function userInfo() {
         
             
         })
+        
+        btnPrev = document.querySelector(".prev");
+      
+            btnPrev.addEventListener('click', function(){
+                if(contador <= 1){
+                    contador++;
+                }
+                contador--;
+                adelante = "?page="+contador;
+                console.log(contador);       
+                
+                console.log("entre");
+      
+            quitar();
+
+            userInfo();
+        
+            
+        })
    
-    
+        
         
        
           
