@@ -101,6 +101,23 @@ nav li a:hover{
   	background-color: #ff9800;
 }
 
+.next{
+	margin: 30px;
+  	background-color: black;
+  	margin-left: 64%;
+  	width: 20%;  			 	
+  	padding: 10px;
+  	color: white;
+  	border: 0;
+  	cursor: pointer;
+  	border-radius: 2px; 
+
+}
+
+.next:hover{
+  	background-color: #ff9800;
+}
+
 
 @media screen and (max-width: 768px){
 	.main_button{

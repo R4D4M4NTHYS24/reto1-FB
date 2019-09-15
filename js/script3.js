@@ -15,7 +15,8 @@ let span;
 let figure;
 let btnNext;
 let contador;
-
+let flag;
+let postImage;
 
 
 
@@ -34,27 +35,26 @@ function userInfo() {
 
         
        
-        userImage = document.querySelector(".image");
+        
         characterA = document.querySelector(".post-list");
         characterFigure = document.querySelector(".post");
         characterSpan = document.querySelector(".post");
-        characterImg = document.querySelector(".post-image"); 
-        //userImage.src = character.image; 
+        characterImg = document.querySelector(".post-image");        
         length = respuesta.results.length; 
-        
+        //flag = false;
        
         postElements = document.getElementsByClassName('post');  
         
-        
-        
-        for (let index = 0; index < postElements.length; index++) {   
-            let postImage = postElements[index].querySelector('.image'); 
-                    
-            character = respuesta.results[index];
-            console.log(index); 
-            postImage.src = character.image;       
-            
-            
+        precarga();
+        function precarga(){
+        for (let index = 0; index < length; index++) { 
+                              
+            contador = 1;      
+            if(index == 1){
+                contador++;
+                console.log(contador);
+            }
+          
             
             a = document.createElement("a");
             figure = document.createElement("figure"); 
@@ -69,22 +69,21 @@ function userInfo() {
             figure.setAttribute('class',"post-image"); 
 
             span.setAttribute('class',"post-overlay"); 
-            
-            img.setAttribute('src',`${userImage.src}`);                      
-            img.setAttribute('class',"image");
-            
+
             a.appendChild(figure);
-            a.appendChild(span);          
-               
-            figure.appendChild(img);
+            a.appendChild(span);      
             
-            console.log(img);         
-            console.log("ejecute");       
+            character = respuesta.results[index]; 
+                                
+            img.setAttribute('class',"image"); 
+            img.setAttribute('src',`${character.image}`);             
+               
+            figure.appendChild(img);          
+            
+                
                      
             postElements[index].addEventListener('click', function(){
-                console.log("entre");
-                console.log(index);
-                console.log(character);
+              
                 localStorage.setItem('character', JSON.stringify(respuesta.results[index]));
             })      
             
@@ -93,18 +92,22 @@ function userInfo() {
             
             
         }
+    }
+        
         /*
-        contador = 1;
         btnNext = document.querySelector(".next");
+        console.log(contador);
         btnNext.addEventListener('click', function(){
-            respuesta.next;
+            results=respuesta.next;
+            console.log(results);
+            precarga(results);
             contador++;
             console.log("entre");
             console.log(index);
             console.log(character);
             
-        })*/
-            
+        })
+         */   
         
         
        
