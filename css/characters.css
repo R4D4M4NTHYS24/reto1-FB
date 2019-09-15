@@ -102,8 +102,11 @@ nav li a:hover{
 }
 
 .next{
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;	
 	margin: 30px;
-  	background-color: black;
+	background-color: black;	
   	margin-left: 64%;
   	width: 20%;  			 	
   	padding: 10px;
@@ -118,6 +121,25 @@ nav li a:hover{
   	background-color: #ff9800;
 }
 
+.prev{
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;	
+	margin: 30px;
+	background-color: black;	
+  	margin-right: 64%;
+  	width: 20%;  			 	
+  	padding: 10px;
+  	color: white;
+  	border: 0;
+  	cursor: pointer;
+  	border-radius: 2px; 
+
+}
+
+.prev:hover{
+  	background-color: #ff9800;
+}
 
 @media screen and (max-width: 768px){
 	.main_button{
