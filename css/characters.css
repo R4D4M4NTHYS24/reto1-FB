@@ -151,7 +151,11 @@ nav li a:hover{
   		padding-left: 20px;
   		display: flex;
 	}
+
+	
 	.post-list{
+		display: grid;
 		grid-template-columns: repeat(3, minmax(100px, 293px));
+		grid-gap: 3px;
 	}
 }
