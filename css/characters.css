@@ -141,7 +141,7 @@ nav li a:hover{
   	background-color: #ff9800;
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 768px){
 	.main_button{
   	margin-left: 80%;
   	width: 22%;
