@@ -94,20 +94,46 @@ function userInfo() {
         section2.setAttribute('class',"btns");
         characterS2.appendChild(section2);
 
-        characterC = document.querySelector(".btns");
-        z = document.createElement("a");
-        z.setAttribute('href',"#");
-        z.setAttribute('class',"prev");
-        z.innerHTML = "< Anterior";
-        characterC.appendChild(z);
+        if (contador > 1) {
+            characterC = document.querySelector(".btns");
+            z = document.createElement("a");
+            z.setAttribute('href',"#");
+            z.setAttribute('class',"prev");
+            z.innerHTML = "< Anterior";
+            characterC.appendChild(z);
 
-        characterB = document.querySelector(".btns");
-        a = document.createElement("a");
-        a.setAttribute('href',"#");
-        a.setAttribute('class',"next");
-        a.innerHTML = "Siguiente >";
-        characterB.appendChild(a);       
-        
+            btnPrev = document.querySelector(".prev");
+            btnPrev.addEventListener('click', function () {
+                if (contador <= 1) {
+                    contador++;
+                }
+                contador--;
+                adelante = "?page=" + contador;
+                quitar();
+                userInfo();
+            })
+        }        
+
+        if (contador < 25){
+            characterB = document.querySelector(".btns");
+            a = document.createElement("a");
+            a.setAttribute('href',"#");
+            a.setAttribute('class',"next");
+            a.innerHTML = "Siguiente >";
+            characterB.appendChild(a);  
+
+            btnNext = document.querySelector(".next");      
+            btnNext.addEventListener('click', function(){
+                if(contador >= 25){
+                    contador--;
+                }
+                contador++;
+                adelante = "?page="+contador;
+                quitar();
+                userInfo();            
+            })
+
+        }
 
         function quitar(){
             section2 = document.querySelector("section");            
@@ -118,60 +144,10 @@ function userInfo() {
             seccion = document.querySelector("body");
             seccion.removeChild(section);  
 
-            characterB.removeChild(a);           
-            characterC.removeChild(z);            
+          
             
             
         }       
-        
-          
-        btnNext = document.querySelector(".next");
-      
-            btnNext.addEventListener('click', function(){
-                if(contador >= 25){
-                    contador--;
-                }
-                contador++;
-                adelante = "?page="+contador;               
-      
-            quitar();
-
-            userInfo();
-        
-            
-        })
-        
-        btnPrev = document.querySelector(".prev");
-      
-            btnPrev.addEventListener('click', function(){
-                if(contador <= 1){
-                    contador++;
-                }
-                contador--;
-                adelante = "?page="+contador;                
-      
-            quitar();
-
-            userInfo();
-        
-            
-        })
-   
-        
-        
-       
-          
-        
-        
-       
-        
-
-        
-
-        
-
-
-
     });
     
 }
